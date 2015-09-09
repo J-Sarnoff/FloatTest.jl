@@ -10,8 +10,7 @@ If they pass you will see
 
 _**The numerics tested work properly.**_
 
-If any test does not pass, that information is shown.  
-And it would be generally useful to know the test that failed and versioninfo().
+If any test does not pass, or the version of Julia in use does not support fma, that information is shown.  It would be generally useful to know the test that failed and versioninfo().
 
 I want to rely on capabilities that are very widely shared.
 
