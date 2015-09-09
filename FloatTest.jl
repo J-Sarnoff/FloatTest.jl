@@ -36,6 +36,7 @@ function show_result()
     end
 end;
 
-show_result()
+if true
+   show_result()
+end   
 
-true # force show_result() to execute when this is pasted into the REPL
