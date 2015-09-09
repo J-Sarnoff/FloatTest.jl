@@ -16,14 +16,5 @@ And it would be generally useful to know the test that failed and versioninfo().
 I want to avoid relying on capabilities that are not very widely shared.
 
 
-```
-Julia Version 0.4.0-pre+7380
-Commit 6ef451c (2015-09-08 04:13 UTC)
-Platform Info:
-  System: Linux (x86_64-unknown-linux-gnu)
-  CPU: Intel(R) Core(TM) i7-4960X CPU @ 3.60GHz
-  WORD_SIZE: 64
-```
-
 
 
