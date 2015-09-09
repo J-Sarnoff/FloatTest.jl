@@ -13,8 +13,5 @@ If they pass you will see
 If any test does not pass, that information is shown.  
 And it would be generally useful to know the test that failed and versioninfo().
 
-I want to avoid relying on capabilities that are not very widely shared.
-
-
-
+I want to rely on capabilities that are very widely shared.
 
