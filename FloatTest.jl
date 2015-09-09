@@ -38,4 +38,4 @@ end;
 
 show_result()
 
-nothing # force show_result() to execute when this is pasted into the REPL
+true # force show_result() to execute when this is pasted into the REPL
