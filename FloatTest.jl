@@ -36,4 +36,4 @@ function show_result()
     end
 end;
 
-if true show_result() end   
+if true show_result() end; # run the tests   
