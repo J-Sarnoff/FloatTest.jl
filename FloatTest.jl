@@ -35,7 +35,7 @@ function show_result()
     if (doublerounding_test & extendedprec_test & fma_test)
         println("\n\t\t\t The numerics tested work properly.\n")
     elseif ((doublerounding_test & extendedprec_test) && !fma_version_test)
-        println("\n\t\t\t The numerics tested work properly.\n The version you are using does not support fma.\n")
+        println("\n\t\t\t The numerics tested work properly.\n\t\t\t The version you are using does not support fma.\n")
     end
 end;
 
