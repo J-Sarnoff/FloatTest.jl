@@ -19,10 +19,8 @@ b = reinterpret(Float64, 0xbf43a04556d864ae); # ~ -5.989E-004
 c = reinterpret(Float64, 0xbfc55364b6b08299); # ~ -0.166
 abc_with_fma    = reinterpret(Float64, 0xBBBAD89127ADE008); # ~ -5.694854e-21
 
-fma_version_test = (VERSION >= v"0.4.0-dev+2823")
-if fma_version_test
-    fma_test = (fma(b,c,a) == abc_with_fma);
-end    
+fma_version_test = (VERSION >= v"0.4.0-dev+2823");
+fma_test = fma_version_test ? (fma(b,c,a) == abc_with_fma) : false;
 
 function show_result()
     if !doublerounding_test
@@ -31,10 +29,9 @@ function show_result()
     if !extendedprec_test
         println("extended precision alters result")
     end
-    if (fma_version_test & !fma_test)
+    if fma_version_test & !fma_test
         println("hardware/software fma does not work properly")
     end
-    if (
     if (doublerounding_test & extendedprec_test & fma_test)
         println("\n\t\t\t The numerics tested work properly.\n")
     elseif (doublerounding_test & extendedprec_test & !fma_version_test)
