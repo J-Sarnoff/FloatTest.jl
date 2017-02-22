@@ -12,7 +12,7 @@
 
     sources and refs:
 
-         IEEE754-2008 compliance: Does imprecise double rounding occur?
+        IEEE754-2008 compliance: Does imprecise double rounding occur?
             the function http://www.vinc17.org/software/test.java
             both results http://www.vinc17.org/research/extended.en.html
             as a gcc bug https://gcc.gnu.org/bugzilla/show_bug.cgi?id=16122
