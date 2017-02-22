@@ -6,8 +6,23 @@
     Prior written permission is required for all other utilizations (gmail: my.name).
 =#
 #=
-    edited: 2017-Feb-21 (proviude ldexp() expressions)
+    created 2016-Apr-12
+    updated 2017-Feb-21:  provide ldexp() expressions
 
+
+    sources and refs:
+
+         IEEE754-2008 compliance: Does imprecise double rounding occur?
+            the function http://www.vinc17.org/software/test.java
+            both results http://www.vinc17.org/research/extended.en.html
+            as a gcc bug https://gcc.gnu.org/bugzilla/show_bug.cgi?id=16122
+
+        Floating Point Mulitply and Accumlate: Does FMA augment the product without error?
+            fma tests: http://www.vinc17.net/software/fma-tests.c
+            this and more:  http://www.vinc17.net/research/fptest.en.html
+
+
+Each of these tests comes from a 
 =#
 
 #=
