@@ -1,3 +1,10 @@
+#=
+    Jeffrey Sarnoff's preconditions for portable and reliable floating point (first phase)
+    Copyright Ⓒ2016 by Jeffrey A. Sarnoff.  All Rights Reserved.  
+    
+    This material may be used for academic research and non-commerical eleemosynary work.
+    Prior written permission is required for all other utilizations (gmail: my.name).
+=#
 
 x = 9007199254740994.0 # 2^53 + 2
 y = 1.0 - 1.0/65536.0 
@@ -57,4 +64,3 @@ end
 if !show_results()
     throw(ErrorException("The floating point environment is unusable."))
 end        
-
