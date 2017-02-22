@@ -31,26 +31,30 @@ extendedprec_test = (tst_log1p(1.0e-10) == 9.999999999500001e-11);
 
 fma_abc = reinterpret(Float64, 0xBBBAD89127ADE008); # ~ -5.69485419e-21
 
-fma_test = (fma(b,c,a) == fma_abc)
+fma_test = (fma(a, b, c) == fma_abc)
 
 
 
 function show_results()
+    ok = false
     if !doublerounding_test
         println("double rounding occured")
     end
     if !extendedprec_test
         println("extended precision alters result")
     end
-    if fma_version_test & !fma_test
+    if !fma_test
         println("hardware/software fma does not work properly")
     end
     if (doublerounding_test & extendedprec_test & fma_test)
-        println("\n\t\t\t The numerics tested work properly.\n")
-    elseif ((doublerounding_test & extendedprec_test) && !fma_version_test)
-        println("\n\t\t\t The numerics tested work properly.\n\t\t\t The version you are using does not support fma.\n")
+        ok = true
+    else
+        println("\n\tCAUTION\n")
     end
-end;
+    return ok
+end
 
-show_results() # run the tests   
+if !show_results()
+    throw(ErrorException("The floating point environment is unusable."))
+end        
 
