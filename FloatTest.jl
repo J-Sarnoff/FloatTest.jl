@@ -14,15 +14,25 @@ end;
 
 extendedprec_test = (tst_log1p(1.0e-10) == 9.999999999500001e-11);
 
-a = reinterpret(Float64, 0xbF1A28A5F3777D60); # ~ -9.97878E-5
-b = reinterpret(Float64, 0xbf43a04556d864ae); # ~ -5.989E-004
-c = reinterpret(Float64, 0xbfc55364b6b08299); # ~ -0.166
-abc_with_fma    = reinterpret(Float64, 0xBBBAD89127ADE008); # ~ -5.694854e-21
+#=
+      a   =  ldexp(-0.6664298599390178,  -2) ~= -0.16660746498475446
+      b   =  ldexp(-0.6133143135258672, -10) ~= -0.0005989397593026047
+      c   =  ldexp(-0.8174619441232771, -13) ~= -9.978783497598597e-5
 
-fma_version_test = VERSION >= v"0.4.0-dev+2823";
-fma_test = fma_version_test ? (fma(b,c,a) == abc_with_fma) : false;
+  fma_abc =  ldexp(-0.8389364027962083, -67) ~= -5.684854190555145e-21
+=#
 
-function show_result()
+    a   = reinterpret(Float64, 0xbfc55364b6b08299); # ~ -0.166607465
+    b   = reinterpret(Float64, 0xbf43a04556d864ae); # ~ -0.00059894
+    c   = reinterpret(Float64, 0xbF1A28A5F3777D60); # ~ -9.97878349e-5
+
+fma_abc = reinterpret(Float64, 0xBBBAD89127ADE008); # ~ -5.69485419e-21
+
+fma_test = (fma(b,c,a) == fma_abc)
+
+
+
+function show_results()
     if !doublerounding_test
         println("double rounding occured")
     end
@@ -39,7 +49,5 @@ function show_result()
     end
 end;
 
-if true 
-    show_result() 
-end # run the tests   
+show_results() # run the tests   
 
